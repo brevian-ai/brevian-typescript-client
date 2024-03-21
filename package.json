@@ -1,15 +1,16 @@
 {
   "name": "brevian-sdk",
-  "version": "0.1.10",
+  "version": "0.1.13",
   "description": "Typescript client for BREVIAN",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "scripts": {
-    "build": "rm -rf dist/ && tsc"
-  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/brevian-ai/brevian-typescript-client"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "cp -rv dist/. ."
   },
   "keywords": [],
   "author": "BREVIAN, INC.",
