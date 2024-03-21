@@ -1,8 +1,8 @@
 {
   "name": "brevian-typescript-client",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Typescript client for BREVIAN",
-  "main": "src/index.d.ts",
+  "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
