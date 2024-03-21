@@ -1,0 +1,20 @@
+{
+  "name": "brevian-typescript-client",
+  "version": "0.1.6",
+  "description": "Typescript client for BREVIAN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brevian-ai/brevian-typescript-client"
+  },
+  "keywords": [],
+  "author": "brandon@brevian.ai",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.3"
+  }
+}
