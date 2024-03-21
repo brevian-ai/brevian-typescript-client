@@ -2,11 +2,11 @@
   "compilerOptions": {
     "lib": [
       "ESNext",
+      "es2022",
+      "es2017",
+      "es2021",
       "DOM"
     ],
-    // "types": [
-    //   "@types/node",
-    // ],
     "module": "commonjs",
     "target": "ESNext",
     "rootDir": "src/", /* Specify the root folder within your source files. */
@@ -17,7 +17,6 @@
     "declarationMap": true,
     "inlineSources": false,
     "outDir": "dist/",
-    "isolatedModules": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
@@ -29,7 +28,7 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
-
 }
