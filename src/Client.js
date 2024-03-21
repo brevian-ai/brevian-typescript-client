@@ -35,6 +35,7 @@ const BrevianApi = __importStar(require("./api"));
 const url_join_1 = __importDefault(require("url-join"));
 const errors = __importStar(require("./errors"));
 class BrevianApiClient {
+    _options;
     constructor(_options) {
         this._options = _options;
     }

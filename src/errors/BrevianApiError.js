@@ -5,6 +5,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BrevianApiError = void 0;
 class BrevianApiError extends Error {
+    statusCode;
+    body;
     constructor({ message, statusCode, body }) {
         super(buildMessage({ message, statusCode, body }));
         Object.setPrototypeOf(this, BrevianApiError.prototype);

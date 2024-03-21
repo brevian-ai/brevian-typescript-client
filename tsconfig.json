@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Language and Environment */
-    "target": "es2020",
+    "target": "esnext",
     /* Modules */
     "module": "commonjs",
     "rootDir": "src/", /* Specify the root folder within your source files. */
