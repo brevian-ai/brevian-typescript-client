@@ -41,7 +41,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BrevianApiClient = void 0;
 const core = __importStar(require("./core"));
 const BrevianApi = __importStar(require("./api"));
-const serializers = __importStar(require("./serialization"));
 const url_join_1 = __importDefault(require("url-join"));
 const errors = __importStar(require("./errors"));
 class BrevianApiClient {
@@ -71,41 +70,21 @@ class BrevianApiClient {
                     "X-Fern-Language": "JavaScript",
                 },
                 contentType: "application/json",
-                body: yield serializers.PostChatRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+                body: request,
                 timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : undefined,
                 maxRetries: requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.maxRetries,
             });
             if (_response.ok) {
-                return yield serializers.PostChatResponse.parseOrThrow(_response.body, {
-                    unrecognizedObjectKeys: "passthrough",
-                    allowUnrecognizedUnionMembers: true,
-                    allowUnrecognizedEnumValues: true,
-                    breadcrumbsPrefix: ["response"],
-                });
+                return _response.body;
             }
             if (_response.error.reason === "status-code") {
                 switch (_response.error.statusCode) {
                     case 403:
-                        throw new BrevianApi.ForbiddenError(yield serializers.ForbiddenErrorBody.parseOrThrow(_response.error.body, {
-                            unrecognizedObjectKeys: "passthrough",
-                            allowUnrecognizedUnionMembers: true,
-                            allowUnrecognizedEnumValues: true,
-                            breadcrumbsPrefix: ["response"],
-                        }));
+                        throw new BrevianApi.ForbiddenError(_response.error.body);
                     case 429:
-                        throw new BrevianApi.TooManyRequestsError(yield serializers.TooManyRequestsErrorBody.parseOrThrow(_response.error.body, {
-                            unrecognizedObjectKeys: "passthrough",
-                            allowUnrecognizedUnionMembers: true,
-                            allowUnrecognizedEnumValues: true,
-                            breadcrumbsPrefix: ["response"],
-                        }));
+                        throw new BrevianApi.TooManyRequestsError(_response.error.body);
                     case 500:
-                        throw new BrevianApi.InternalServerError(yield serializers.InternalServerErrorBody.parseOrThrow(_response.error.body, {
-                            unrecognizedObjectKeys: "passthrough",
-                            allowUnrecognizedUnionMembers: true,
-                            allowUnrecognizedEnumValues: true,
-                            breadcrumbsPrefix: ["response"],
-                        }));
+                        throw new BrevianApi.InternalServerError(_response.error.body);
                     default:
                         throw new errors.BrevianApiError({
                             statusCode: _response.error.statusCode,

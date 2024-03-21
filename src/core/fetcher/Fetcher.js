@@ -19,8 +19,8 @@ const INITIAL_RETRY_DELAY = 1;
 const MAX_RETRY_DELAY = 60;
 const DEFAULT_MAX_RETRIES = 2;
 function fetcherImpl(args) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function* () {
+        var _a, _b;
         const headers = {};
         if (args.body !== undefined && args.contentType != null) {
             headers["Content-Type"] = args.contentType;
