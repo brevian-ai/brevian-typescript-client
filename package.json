@@ -1,6 +1,6 @@
 {
   "name": "brevian-typescript-client",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Typescript client for BREVIAN",
   "main": "src/index.ts",
   "scripts": {
