@@ -1,5 +1,5 @@
 {
-  "name": "brevian-typescript-client",
+  "name": "brevian",
   "version": "0.1.12",
   "description": "Typescript client for BREVIAN",
   "module": "./dist/index.mjs",
