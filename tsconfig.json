@@ -8,8 +8,8 @@
       "DOM"
     ],
     "module": "commonjs",
-    "target": "es2018",
-    "rootDir": "src/", /* Specify the root folder within your source files. */
+    "target": "ES2018",
+    "rootDir": "src/",
     "esModuleInterop": true,
     "composite": false,
     "declaration": true,
@@ -21,11 +21,13 @@
     "preserveWatchOutput": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    /* Type Checking */
     "strict": true,
     /* Completeness */
     "skipLibCheck": true
   },
+  "include": [
+    "src/**/*",
+  ],
   "exclude": [
     "node_modules",
     "dist"

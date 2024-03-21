@@ -1,3 +1,5 @@
+/* tslint:disable */
+/* eslint-disable */
 /**
  * BREVIAN API
  * API Interface for interacting with BREVIAN AI Platform.
@@ -10,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
-export enum MessageRoleEnum {
-    User = <any> 'user',
-    Assistant = <any> 'assistant'
-}
+export * from "./api";
+export * from "./configuration";
+
