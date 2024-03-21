@@ -1,6 +1,6 @@
 {
   "name": "brevian-typescript-client",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "Typescript client for BREVIAN",
   "main": "src/index.d.ts",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "brandon@brevian.ai",
-  "license": "ISC",
+  "license": "Apache 2.0",
   "devDependencies": {
     "@types/node": "^20.11.30",
     "@types/qs": "^6.9.14",
