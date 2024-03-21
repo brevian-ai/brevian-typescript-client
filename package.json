@@ -15,7 +15,7 @@
     "url": "https://github.com/brevian-ai/brevian-typescript-client"
   },
   "keywords": [],
-  "author": "brandon@brevian.ai",
+  "author": "BREVIAN, INC.",
   "license": "Apache 2.0",
   "devDependencies": {
     "@types/node": "^20.11.30",
