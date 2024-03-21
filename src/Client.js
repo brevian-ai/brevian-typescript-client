@@ -25,15 +25,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -60,57 +51,53 @@ class BrevianApiClient {
      *             }]
      *     })
      */
-    postChat(request, requestOptions) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const _response = yield core.fetcher({
-                url: (0, url_join_1.default)(yield core.Supplier.get(this._options.environment), "chat"),
-                method: "POST",
-                headers: {
-                    Authorization: yield this._getAuthorizationHeader(),
-                    "X-Fern-Language": "JavaScript",
-                },
-                contentType: "application/json",
-                body: request,
-                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : undefined,
-                maxRetries: requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.maxRetries,
-            });
-            if (_response.ok) {
-                return _response.body;
-            }
-            if (_response.error.reason === "status-code") {
-                switch (_response.error.statusCode) {
-                    case 403:
-                        throw new BrevianApi.ForbiddenError(_response.error.body);
-                    case 429:
-                        throw new BrevianApi.TooManyRequestsError(_response.error.body);
-                    case 500:
-                        throw new BrevianApi.InternalServerError(_response.error.body);
-                    default:
-                        throw new errors.BrevianApiError({
-                            statusCode: _response.error.statusCode,
-                            body: _response.error.body,
-                        });
-                }
-            }
-            switch (_response.error.reason) {
-                case "non-json":
+    async postChat(request, requestOptions) {
+        const _response = await core.fetcher({
+            url: (0, url_join_1.default)(await core.Supplier.get(this._options.environment), "chat"),
+            method: "POST",
+            headers: {
+                Authorization: await this._getAuthorizationHeader(),
+                "X-Fern-Language": "JavaScript",
+            },
+            contentType: "application/json",
+            body: request,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : undefined,
+            maxRetries: requestOptions?.maxRetries,
+        });
+        if (_response.ok) {
+            return _response.body;
+        }
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 403:
+                    throw new BrevianApi.ForbiddenError(_response.error.body);
+                case 429:
+                    throw new BrevianApi.TooManyRequestsError(_response.error.body);
+                case 500:
+                    throw new BrevianApi.InternalServerError(_response.error.body);
+                default:
                     throw new errors.BrevianApiError({
                         statusCode: _response.error.statusCode,
-                        body: _response.error.rawBody,
-                    });
-                case "timeout":
-                    throw new errors.BrevianApiTimeoutError();
-                case "unknown":
-                    throw new errors.BrevianApiError({
-                        message: _response.error.errorMessage,
+                        body: _response.error.body,
                     });
             }
-        });
+        }
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.BrevianApiError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                });
+            case "timeout":
+                throw new errors.BrevianApiTimeoutError();
+            case "unknown":
+                throw new errors.BrevianApiError({
+                    message: _response.error.errorMessage,
+                });
+        }
     }
-    _getAuthorizationHeader() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return `Bearer ${yield core.Supplier.get(this._options.token)}`;
-        });
+    async _getAuthorizationHeader() {
+        return `Bearer ${await core.Supplier.get(this._options.token)}`;
     }
 }
 exports.BrevianApiClient = BrevianApiClient;
