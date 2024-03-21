@@ -1,12 +1,9 @@
 {
-  "name": "brevian",
-  "version": "0.1.12",
+  "name": "brevian-sdk",
+  "version": "0.1.10",
   "description": "Typescript client for BREVIAN",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "rm -rf dist/ && tsc"
   },
