@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext",
+      "es2022",
+      "es2017",
+      "es2021",
+      "DOM"
+    ],
+    "module": "commonjs",
+    "target": "ES2018",
+    "rootDir": "src/",
+    "esModuleInterop": true,
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": false,
+    "outDir": "dist/",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    /* Completeness */
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
