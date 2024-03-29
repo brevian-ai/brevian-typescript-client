@@ -155,12 +155,6 @@ export interface Message {
     'content': string;
 }
 
-export const MessageRoleEnum = {
-    User: 'user',
-    Assistant: 'assistant'
-} as const;
-
-export type MessageRoleEnum = typeof MessageRoleEnum[keyof typeof MessageRoleEnum];
 
 /**
  * 
