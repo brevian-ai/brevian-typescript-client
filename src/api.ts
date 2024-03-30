@@ -187,7 +187,7 @@ export interface PostChat200Response {
      * @type {string}
      * @memberof PostChat200Response
      */
-    'conversationId': string;
+    'conversation_id': string;
     /**
      * 
      * @type {string}

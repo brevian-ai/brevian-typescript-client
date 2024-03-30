@@ -1,6 +1,6 @@
 {
   "name": "brevian-sdk",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Typescript client for BREVIAN",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
