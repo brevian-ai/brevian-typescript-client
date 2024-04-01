@@ -45,49 +45,6 @@ export interface ChatRequest {
 /**
  * 
  * @export
- * @interface ChatResponse
- */
-export interface ChatResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'conversationId': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'created': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'model': string;
-    /**
-     * 
-     * @type {Array<PostChat200ResponseChoicesInner>}
-     * @memberof ChatResponse
-     */
-    'choices': Array<PostChat200ResponseChoicesInner>;
-    /**
-     * 
-     * @type {Usage}
-     * @memberof ChatResponse
-     */
-    'usage': Usage;
-}
-/**
- * 
- * @export
  * @interface Choice
  */
 export interface Choice {
