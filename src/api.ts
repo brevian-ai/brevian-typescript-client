@@ -31,10 +31,10 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 export interface ChatRequest {
     /**
      * 
-     * @type {Array<PostChatRequestMessagesInner>}
+     * @type {Array<PostChat200ResponseChoicesInnerMessage>}
      * @memberof ChatRequest
      */
-    'messages': Array<PostChatRequestMessagesInner>;
+    'messages': Array<PostChat200ResponseChoicesInnerMessage>;
     /**
      * 
      * @type {string}
@@ -80,10 +80,35 @@ export interface ChatResponse {
     'choices': Array<PostChat200ResponseChoicesInner>;
     /**
      * 
-     * @type {PostChat200ResponseUsage}
+     * @type {ChatResponseUsage}
      * @memberof ChatResponse
      */
-    'usage': PostChat200ResponseUsage;
+    'usage': ChatResponseUsage;
+}
+/**
+ * 
+ * @export
+ * @interface ChatResponseUsage
+ */
+export interface ChatResponseUsage {
+    /**
+     * 
+     * @type {number}
+     * @memberof ChatResponseUsage
+     */
+    'promptTokens': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ChatResponseUsage
+     */
+    'completionTokens': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ChatResponseUsage
+     */
+    'totalTokens': number;
 }
 /**
  * 
@@ -105,10 +130,10 @@ export interface Choice {
     'finish_reason': string;
     /**
      * 
-     * @type {PostChatRequestMessagesInner}
+     * @type {PostChat200ResponseChoicesInnerMessage}
      * @memberof Choice
      */
-    'message': PostChatRequestMessagesInner;
+    'message': PostChat200ResponseChoicesInnerMessage;
 }
 /**
  * 
@@ -143,7 +168,7 @@ export interface ErrorResponse {
 export interface Message {
     /**
      * 
-     * @type {string}
+     * @type {MessageRoleEnum}
      * @memberof Message
      */
     'role': MessageRoleEnum;
@@ -233,11 +258,32 @@ export interface PostChat200ResponseChoicesInner {
     'finish_reason': string;
     /**
      * 
-     * @type {PostChatRequestMessagesInner}
+     * @type {PostChat200ResponseChoicesInnerMessage}
      * @memberof PostChat200ResponseChoicesInner
      */
-    'message': PostChatRequestMessagesInner;
+    'message': PostChat200ResponseChoicesInnerMessage;
 }
+/**
+ * 
+ * @export
+ * @interface PostChat200ResponseChoicesInnerMessage
+ */
+export interface PostChat200ResponseChoicesInnerMessage {
+    /**
+     * 
+     * @type {MessageRoleEnum}
+     * @memberof PostChat200ResponseChoicesInnerMessage
+     */
+    'role': MessageRoleEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostChat200ResponseChoicesInnerMessage
+     */
+    'content': string;
+}
+
+
 /**
  * 
  * @export
@@ -249,19 +295,19 @@ export interface PostChat200ResponseUsage {
      * @type {number}
      * @memberof PostChat200ResponseUsage
      */
-    'promptTokens': number;
+    'prompt_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof PostChat200ResponseUsage
      */
-    'completionTokens': number;
+    'completion_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof PostChat200ResponseUsage
      */
-    'totalTokens': number;
+    'total_tokens': number;
 }
 /**
  * 
