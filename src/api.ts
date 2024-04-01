@@ -415,19 +415,19 @@ export interface Usage {
      * @type {number}
      * @memberof Usage
      */
-    'promptTokens': number;
+    'prompt_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof Usage
      */
-    'completionTokens': number;
+    'completion_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof Usage
      */
-    'totalTokens': number;
+    'total_tokens': number;
 }
 
 /**
