@@ -80,35 +80,10 @@ export interface ChatResponse {
     'choices': Array<PostChat200ResponseChoicesInner>;
     /**
      * 
-     * @type {ChatResponseUsage}
+     * @type {Usage}
      * @memberof ChatResponse
      */
-    'usage': ChatResponseUsage;
-}
-/**
- * 
- * @export
- * @interface ChatResponseUsage
- */
-export interface ChatResponseUsage {
-    /**
-     * 
-     * @type {number}
-     * @memberof ChatResponseUsage
-     */
-    'promptTokens': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ChatResponseUsage
-     */
-    'completionTokens': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ChatResponseUsage
-     */
-    'totalTokens': number;
+    'usage': Usage;
 }
 /**
  * 
