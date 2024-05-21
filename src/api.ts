@@ -31,59 +31,16 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 export interface ChatRequest {
     /**
      * 
-     * @type {Array<PostChatRequestMessagesInner>}
+     * @type {Array<PostChat200ResponseChoicesInnerMessage>}
      * @memberof ChatRequest
      */
-    'messages': Array<PostChatRequestMessagesInner>;
+    'messages': Array<PostChat200ResponseChoicesInnerMessage>;
     /**
      * 
      * @type {string}
      * @memberof ChatRequest
      */
     'agentId'?: string;
-}
-/**
- * 
- * @export
- * @interface ChatResponse
- */
-export interface ChatResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'conversationId': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'created': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatResponse
-     */
-    'model': string;
-    /**
-     * 
-     * @type {Array<PostChat200ResponseChoicesInner>}
-     * @memberof ChatResponse
-     */
-    'choices': Array<PostChat200ResponseChoicesInner>;
-    /**
-     * 
-     * @type {PostChat200ResponseUsage}
-     * @memberof ChatResponse
-     */
-    'usage': PostChat200ResponseUsage;
 }
 /**
  * 
@@ -105,10 +62,10 @@ export interface Choice {
     'finish_reason': string;
     /**
      * 
-     * @type {PostChatRequestMessagesInner}
+     * @type {PostChat200ResponseChoicesInnerMessage}
      * @memberof Choice
      */
-    'message': PostChatRequestMessagesInner;
+    'message': PostChat200ResponseChoicesInnerMessage;
 }
 /**
  * 
@@ -143,7 +100,7 @@ export interface ErrorResponse {
 export interface Message {
     /**
      * 
-     * @type {string}
+     * @type {MessageRoleEnum}
      * @memberof Message
      */
     'role': MessageRoleEnum;
@@ -187,7 +144,7 @@ export interface PostChat200Response {
      * @type {string}
      * @memberof PostChat200Response
      */
-    'conversationId': string;
+    'conversation_id': string;
     /**
      * 
      * @type {string}
@@ -233,11 +190,32 @@ export interface PostChat200ResponseChoicesInner {
     'finish_reason': string;
     /**
      * 
-     * @type {PostChatRequestMessagesInner}
+     * @type {PostChat200ResponseChoicesInnerMessage}
      * @memberof PostChat200ResponseChoicesInner
      */
-    'message': PostChatRequestMessagesInner;
+    'message': PostChat200ResponseChoicesInnerMessage;
 }
+/**
+ * 
+ * @export
+ * @interface PostChat200ResponseChoicesInnerMessage
+ */
+export interface PostChat200ResponseChoicesInnerMessage {
+    /**
+     * 
+     * @type {MessageRoleEnum}
+     * @memberof PostChat200ResponseChoicesInnerMessage
+     */
+    'role': MessageRoleEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostChat200ResponseChoicesInnerMessage
+     */
+    'content': string;
+}
+
+
 /**
  * 
  * @export
@@ -249,19 +227,19 @@ export interface PostChat200ResponseUsage {
      * @type {number}
      * @memberof PostChat200ResponseUsage
      */
-    'promptTokens': number;
+    'prompt_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof PostChat200ResponseUsage
      */
-    'completionTokens': number;
+    'completion_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof PostChat200ResponseUsage
      */
-    'totalTokens': number;
+    'total_tokens': number;
 }
 /**
  * 
@@ -437,19 +415,19 @@ export interface Usage {
      * @type {number}
      * @memberof Usage
      */
-    'promptTokens': number;
+    'prompt_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof Usage
      */
-    'completionTokens': number;
+    'completion_tokens': number;
     /**
      * 
      * @type {number}
      * @memberof Usage
      */
-    'totalTokens': number;
+    'total_tokens': number;
 }
 
 /**
